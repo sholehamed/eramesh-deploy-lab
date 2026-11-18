@@ -1,0 +1,7 @@
+# Insert inside the existing :80 { ... } Caddyfile block,
+# before the final catch-all handle { ... }:
+
+    @lab host lab.eramesh.ir
+    handle @lab {
+        reverse_proxy eramesh-lab:8080
+    }

@@ -1,0 +1,16 @@
+name: eramesh-deploy-lab
+services:
+  web:
+    image: ghcr.io/sholehamed/eramesh-deploy-lab:latest
+    container_name: eramesh-lab
+    restart: unless-stopped
+    mem_limit: 192m
+    cpus: 0.5
+    environment:
+      ASPNETCORE_HTTP_PORTS: "8080"
+    networks:
+      - eramesh-edge
+    # Deliberately no published ports: Caddy is the only entry point.
+networks:
+  eramesh-edge:
+    external: true
